@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CyberLearn | Courses</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #050b08;
+            color: #e8fff3;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* NAVBAR */
+        nav {
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 7%;
+            border-bottom: 1px solid #123d28;
+            background: #07110c;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: bold;
+            color: #00ff88;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 28px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: #b9d8c7;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover,
+        .nav-links .active {
+            color: #00ff88;
+        }
+
+        .dashboard-btn {
+            padding: 10px 18px;
+            border: 1px solid #00ff88;
+            border-radius: 8px;
+            color: #00ff88 !important;
+        }
+
+        /* HEADER */
+        .hero {
+            text-align: center;
+            padding: 80px 20px 50px;
+            background:
+                radial-gradient(circle at top, #0b3321 0%, #050b08 55%);
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 18px;
+        }
+
+        .hero h1 span {
+            color: #00ff88;
+        }
+
+        .hero p {
+            max-width: 700px;
+            margin: auto;
+            color: #a9c8b7;
+            font-size: 17px;
+            line-height: 1.7;
+        }
+
+        /* COURSE SECTION */
+        .courses-section {
+            width: 86%;
+            max-width: 1250px;
+            margin: auto;
+            padding: 30px 0 80px;
+        }
+
+        .section-title {
+            margin-bottom: 30px;
+        }
+
+        .section-title h2 {
+            font-size: 28px;
+        }
+
+        .section-title p {
+            color: #89aa98;
+            margin-top: 8px;
+        }
+
+        .courses-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .course-card {
+            background: #08140e;
+            border: 1px solid #16452e;
+            border-radius: 14px;
+            padding: 25px;
+            transition: 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .course-card:hover {
+            transform: translateY(-6px);
+            border-color: #00ff88;
+            box-shadow: 0 10px 35px rgba(0, 255, 136, 0.08);
+        }
+
+        .course-icon {
+            width: 55px;
+            height: 55px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #0d2b1c;
+            border: 1px solid #17663d;
+            border-radius: 12px;
+            font-size: 25px;
+            margin-bottom: 20px;
+        }
+
+        .course-card h3 {
+            font-size: 21px;
+            margin-bottom: 12px;
+        }
+
+        .course-card p {
+            color: #9bb5a7;
+            line-height: 1.6;
+            min-height: 78px;
+        }
+
+        .course-info {
+            display: flex;
+            gap: 10px;
+            margin: 18px 0;
+            flex-wrap: wrap;
+        }
+
+        .badge {
+            padding: 6px 10px;
+            border-radius: 20px;
+            background: #0d2117;
+            border: 1px solid #1c5336;
+            color: #7fffb9;
+            font-size: 12px;
+        }
+
+        .course-button {
+            display: block;
+            text-align: center;
+            padding: 12px;
+            border-radius: 8px;
+            background: #00ff88;
+            color: #031109;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .course-button:hover {
+            background: #67ffb3;
+        }
+
+        /* FOOTER */
+        footer {
+            text-align: center;
+            padding: 30px;
+            border-top: 1px solid #123d28;
+            color: #6f9180;
+            background: #040907;
+        }
+
+        /* MOBILE */
+        @media (max-width: 900px) {
+            .courses-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .nav-links {
+                gap: 12px;
+            }
+        }
+
+        @media (max-width: 650px) {
+            nav {
+                padding: 0 20px;
+            }
+
+            .nav-links a:not(.dashboard-btn) {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 35px;
+            }
+
+            .courses-section {
+                width: 92%;
+            }
+
+            .courses-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVIGATION -->
+    <nav>
+        <a href="index.html" class="logo">CyberLearn</a>
+
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="learning-paths.html">Learning Paths</a>
+            <a href="courses.html" class="active">Courses</a>
+            <a href="dashboard.html" class="dashboard-btn">Dashboard</a>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero">
+        <h1>Explore <span>Courses</span></h1>
+
+        <p>
+            Build real technical skills through structured courses
+            covering programming, Linux, cybersecurity, ethical hacking,
+            and hands-on security challenges.
+        </p>
+    </section>
+
+    <!-- COURSES -->
+    <section class="courses-section">
+
+        <div class="section-title">
+            <h2>Available Courses</h2>
+            <p>Choose a course and start building your skills.</p>
+        </div>
+
+        <div class="courses-grid">
+
+            <!-- HTML -->
+            <div class="course-card">
+                <div class="course-icon">🌐</div>
+
+                <h3>Web Development Fundamentals</h3>
+
+                <p>
+                    Learn HTML, CSS and the fundamentals of building
+                    modern websites from scratch.
+                </p>
+
+                <div class="course-info">
+                    <span class="badge">Beginner</span>
+                    <span class="badge">12 Lessons</span>
+                </div>
+
+                <a href="dashboard.html" class="course-button">
+                    Start Course
+                </a>
+            </div>
+
+            <!-- JAVASCRIPT -->
+            <div class="course-card">
+                <div class="course-icon">⚡</div>
+
+                <h3>JavaScript Programming</h3>
+
+                <p>
+                    Learn JavaScript fundamentals and use programming
+                    logic to create interactive web applications.
+                </p>
+
+                <div class="course-info">
+                    <span class="badge">Beginner</span>
+                    <span class="badge">15 Lessons</span>
+                </div>
+
+                <a href="dashboard.html" class="course-button">
+                    Start Course
+                </a>
+            </div>
+
+            <!-- PYTHON -->
+            <div class="course-card">
+                <div class="course-icon">🐍</div>
+
+                <h3>Python Programming</h3>
+
+                <p>
+                    Learn Python programming, variables, functions,
+                    conditions, loops and practical coding concepts.
+                </p>
+
+                <div class="course-info">
+                    <span class="badge">Beginner</span>
+                    <span class="badge">18 Lessons</span>
+                </div>
+
+                <a href="dashboard.html" class="course-button">
+                    Start Course
+                </a>
+            </div>
+
+            <!-- LINUX -->
+            <div class="course-card">
+                <div class="course-icon">🐧</div>
+
+                <h3>Linux Fundamentals</h3>
+
+                <p>
+                    Understand Linux commands, file systems, permissions,
+                    processes and basic system administration.
+                </p>
+
+                <div class="course-info">
+                    <span class="badge">Beginner</span>
+                    <span class="badge">14 Lessons</span>
+                </div>
+
+                <a href="dashboard.html" class="course-button">
+                    Start Course
+                </a>
+            </div>
+
+            <!-- CYBERSECURITY -->
+            <div class="course-card">
+                <div class="course-icon">🛡️</div>
+
+                <h3>Cybersecurity Fundamentals</h3>
+
+                <p>
+                    Learn the foundations of cybersecurity, threats,
+                    vulnerabilities, authentication and defensive security.
+                </p>
+
+                <div class="course-info">
+                    <span class="badge">Beginner</span>
+                    <span class="badge">20 Lessons</span>
+                </div>
+
+                <a href="dashboard.html" class="course-button">
+                    Start Course
+                </a>
+            </div>
+
+            <!-- ETHICAL HACKING -->
+            <div class="course-card">
+                <div class="course-icon">🔐</div>
+
+                <h3>Ethical Hacking</h3>
+
+                <p>
+                    Learn ethical security testing concepts and how
+                    penetration testing works in authorized environments.
+                </p>
+
+                <div class="course-info">
+                    <span class="badge">Intermediate</span>
+                    <span class="badge">22 Lessons</span>
+                </div>
+
+                <a href="dashboard.html" class="course-button">
+                    Start Course
+                </a>
+            </div>
+
+            <!-- CTF -->
+            <div class="course-card">
+                <div class="course-icon">🎯</div>
+
+                <h3>Capture The Flag</h3>
+
+                <p>
+                    Practice cybersecurity skills through educational
+                    challenges involving web security, Linux and coding.
+                </p>
+
+                <div class="course-info">
+                    <span class="badge">Intermediate</span>
+                    <span class="badge">16 Challenges</span>
+                </div>
+
+                <a href="dashboard.html" class="course-button">
+                    Start Course
+                </a>
+            </div>
+
+            <!-- BASH -->
+            <div class="course-card">
+                <div class="course-icon">💻</div>
+
+                <h3>Bash & Command Line</h3>
+
+                <p>
+                    Learn command-line fundamentals and Bash scripting
+                    for automation and security learning.
+                </p>
+
+                <div class="course-info">
+                    <span class="badge">Beginner</span>
+                    <span class="badge">13 Lessons</span>
+                </div>
+
+                <a href="dashboard.html" class="course-button">
+                    Start Course
+                </a>
+            </div>
+
+            <!-- PEN TESTING -->
+            <div class="course-card">
+                <div class="course-icon">🔎</div>
+
+                <h3>Penetration Testing Basics</h3>
+
+                <p>
+                    Learn the stages of authorized security assessments,
+                    reconnaissance, vulnerability analysis and reporting.
+                </p>
+
+                <div class="course-info">
+                    <span class="badge">Intermediate</span>
+                    <span class="badge">19 Lessons</span>
+                </div>
+
+                <a href="dashboard.html" class="course-button">
+                    Start Course
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2026 CyberLearn — Learn. Practice. Build. Secure.</p>
+    </footer>
+
+</body>
+</html>
